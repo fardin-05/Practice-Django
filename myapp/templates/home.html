@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My blog</title>
+
+
+    <h1>All blog Post</h1>
+    <style>
+        table{
+            width: 80% ;
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+        th, td {
+            border: 1px solid #333;
+            padding:8px 12px;
+            text-align:left;
+        }
+        th{
+            background-color:#eee
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align:center;"> All Blog Posts</h1>
+    {% if posts %}
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Content</th>
+                <th>Create At</th>
+            </tr>
+        </thead>
+    <tbody>
+        {% for post in posts %}
+        <tr>
+            <td>{{post.title}}</td>
+            <td>{{post.content}}</td>
+            <td>{{post.created_at}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+       {% else %}
+       <p style="text-align:center;">No Post Yet</p>
+       {% endif %}
+</body>
+</html>
