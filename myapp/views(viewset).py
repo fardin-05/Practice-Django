@@ -10,7 +10,7 @@ from django.db.models import Count
 from rest_framework.mixins import CreateModelMixin , ListModelMixin
 from rest_framework.generics import ListCreateAPIView,RetrieveUpdateDestroyAPIView
 from rest_framework.viewsets import ModelViewSet
-#Product Part
+
 class ProductViewSet(ModelViewSet):
     queryset=Product.objects.all()
     serializer_class = ProductSerializer
@@ -26,4 +26,5 @@ class ProductViewSet(ModelViewSet):
 class CategoryViewSet(ModelViewSet):
     queryset = Category.objects.annotate(
             product_count = Count('products')).all()
+
     serializer_class=CategorySerializer
