@@ -11,6 +11,7 @@ from rest_framework.mixins import CreateModelMixin , ListModelMixin
 from rest_framework.generics import ListCreateAPIView,RetrieveUpdateDestroyAPIView
 from rest_framework.viewsets import ModelViewSet
 
+#Product Part
 class ProductViewSet(ModelViewSet):
     queryset=Product.objects.all()
     serializer_class = ProductSerializer
@@ -22,9 +23,8 @@ class ProductViewSet(ModelViewSet):
         return Response(status=status.HTTP_204_NO_CONTENT)
     
 #Category Part
-
 class CategoryViewSet(ModelViewSet):
     queryset = Category.objects.annotate(
             product_count = Count('products')).all()
-
     serializer_class=CategorySerializer
+
