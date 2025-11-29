@@ -8,7 +8,7 @@ from .models import Product , Category
 from .serializers import ProductSerializer,CategorySerializer
 from django.db.models import Count
 
-#Product Part
+#============Product Part=============
 class ViewProduct(APIView):
     def get(self, request):
         products = Product.objects.select_related('category').all()
@@ -37,7 +37,7 @@ class ViewSpecificProduct(APIView):
         product.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
     
-#Category Part
+#=================Category Part================
 class ViewCategory(APIView):
     def get(self , request):
         category = Category.objects.annotate(
@@ -66,3 +66,4 @@ class ViewSpecificCategory(APIView):
         category.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
     
+
