@@ -4,7 +4,7 @@ import random
 from django.db.models.signals import post_save,m2m_changed
 from django.dispatch import receiver
 from django.core.mail import send_mail
-# Custom User Manager
+#=================Custom User Manager==================
 class UserManager (BaseUserManager):
     def create_user(self, email, full_name, password = None, **extra_fields):
         if not email:
@@ -27,7 +27,7 @@ class UserManager (BaseUserManager):
     
 
 
-#Custom User Model
+#===================Custom User Model===================
 class UserModel(AbstractBaseUser, PermissionsMixin):
     ROLE_CHOICES = (
         ('user', 'User'),
@@ -51,7 +51,7 @@ class Employee(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField()
 
-#Signal
+#====Signal=====
 class Test(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
@@ -72,6 +72,7 @@ def test_signal_creation(sender, instance, action, **kwargs):
             assinged_emails,
             fail_silently=False,
     )
+
 
 
 
