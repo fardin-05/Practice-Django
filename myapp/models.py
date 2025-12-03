@@ -51,7 +51,7 @@ class Employee(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField()
 
-#====Signal=====
+#=====Signal======
 class Test(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
@@ -72,6 +72,7 @@ def test_signal_creation(sender, instance, action, **kwargs):
             assinged_emails,
             fail_silently=False,
     )
+
 
 
 
