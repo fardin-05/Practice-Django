@@ -1,3 +1,4 @@
+#function based view
 from django.shortcuts import render
 from django.shortcuts import get_object_or_404
 from rest_framework.response import Response
@@ -49,4 +50,5 @@ def view_specific_category(request , pk):
     category = get_object_or_404 (Category.objects.annotate (product_count = Count('products')) , pk = pk)
     serializer = CategorySerializer(category)
     return Response(serializer.data)
+
 
