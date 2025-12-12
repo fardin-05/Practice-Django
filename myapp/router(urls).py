@@ -6,6 +6,7 @@ router = SimpleRouter()
 router.register('product', ProductViewSet)
 router.register('category', CategoryViewSet)
 
-
+#URL
 urlpatterns = router.urls
+
 
