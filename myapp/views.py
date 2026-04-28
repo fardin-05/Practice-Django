@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect
 from .models import Post
+
 #=======Function Based View========
 def home (request):
     posts=Post.objects.all() 
